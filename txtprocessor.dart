@@ -14,7 +14,7 @@ class TxtProcessor {
    */
   static bool isNewLetterInList(String letter, List<String> letterTrialList) {
     var letraEnMinus = letter.toLowerCase();
-    return word.contains(letra);
+    return word.contains(letraEnMinus);
   }
 
   /*

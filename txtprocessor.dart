@@ -20,7 +20,8 @@ class TxtProcessor {
    * #4. Comprobar si una letra está en una palabra.
    */
   static bool isLetterInWord(String letter, String word) {
-    return false; // stub
+     var letra = letter.toLowerCase();
+    return word.contains(letra);
   }
 
   /*

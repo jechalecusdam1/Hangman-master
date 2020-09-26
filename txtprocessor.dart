@@ -14,8 +14,7 @@ class TxtProcessor {
    */
   static bool isNewLetterInList(String letter, List<String> letterTrialList)  {
     var letra = letter.toLowerCase();
-    int num = letra.readByteSync();
-    if (num < 97 or num > 123) {
+    if (letra == "*") {
       return false;
     } 
     else {

@@ -12,9 +12,15 @@ class TxtProcessor {
    * Si la letra no está en [a-z] o [A-Z] será falso.
    * No es sensitivo a mayúsculas y minúsculas, la 'a' y la 'A' son igual.
    */
-  static bool isNewLetterInList(String letter, List<String> letterTrialList) {
+  static bool isNewLetterInList(String letter, List<String> letterTrialList)  {
     var letra = letter.toLowerCase();
-    return letterTrialList.contains(letra);
+    int num = letra.readByteSync();
+    if (num < 97 or num > 123) {
+      return false;
+    } 
+    else {
+      return letterTrialList.contains(letra);
+    }
   }
 
   /*
@@ -49,5 +55,12 @@ class TxtProcessor {
       missedLetters = "$missedLetters ${letterTrialList[i]}";
     }
     return missedLetters;
+  }
+}
+
+void main() {
+  List<String> letterTrialList = ["x", "v", "g"]
+  var resul = TxtProcessor.isNewLetterInList("*", letterTrialList) {
+  print(resul);
   }
 }

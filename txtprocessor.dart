@@ -45,7 +45,11 @@ class TxtProcessor {
     var missedLetters = "";
     // stub (está mal, incorpora todas las letras, era para ver cambios)
     for (int i = 0; i < letterTrialList.length; i++) {
-      missedLetters = "$missedLetters ${letterTrialList[i]}";
+        if (isLetterInWord(letterTrialList[i], keyword) == false) {
+        missedLetters += letterTrialList[i];
+        missedLetters += " ";
+      }
+      //missedLetters = "$missedLetters ${letterTrialList[i]}";
     }
     return missedLetters;
   }

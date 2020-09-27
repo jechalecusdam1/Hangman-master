@@ -33,7 +33,26 @@ class TxtProcessor {
    * devolverá "b u _ _ s e _ e"
    */
   static String guessedLetters(String keyword, List<String> letterTrialList) {
-    return "b u _ _ s e _ e"; // stub
+    String progreso = "";
+
+    for (var i = 0; i < keyword.length; i++) {
+      bool esta = false;
+      for (var j = 0; j < letterTrialList.length; j++) {
+        if (letterTrialList.elementAt(j).toLowerCase() ==
+            keyword.substring(i, i + 1)) {
+          progreso += letterTrialList.elementAt(j).toLowerCase();
+          esta = true;
+        }
+      }
+      if (!esta) {
+        progreso += "_";
+      }
+      progreso += " ";
+    }
+    progreso = progreso.substring(0, progreso.length - 1);
+
+    //return "b u _ _ s e _ e"; // stub
+    return progreso;
   }
 
   /*

@@ -1,3 +1,5 @@
+import 'gallows.dart';
+
 class Renderer {
   final int max_mistakes;
 
@@ -15,14 +17,15 @@ class Renderer {
    */
   void drawGame(int mistakes, String missed, String guessed) {
     print("Te quedan ${max_mistakes - mistakes} fallos.");
-    print('''
+    /*print('''
   +---+
   |   |
   O   |
  /|   |
       |
       |
-========='''); //stub
+=========''');*/ //stub
+    print(Gallows.level[mistakes]);
     print(guessed);
     print("Fallado: $missed");
   }
@@ -35,3 +38,8 @@ class Renderer {
     print("HAS PERDIDO!");
   }
 }
+/*void main() {
+  int fallos = 6;
+  Renderer r = new Renderer(10);
+  r.drawGame(11, "", "");
+}*/

@@ -1,3 +1,5 @@
+import 'gallows.dart';
+
 class Renderer {
   final int max_mistakes;
 

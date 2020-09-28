@@ -17,7 +17,7 @@ class TxtProcessor {
     if (letra == "*") {
       return false;
     } else {
-      return letterTrialList.contains(letra);
+      return !letterTrialList.contains(letra);
     }
   }
 
@@ -25,7 +25,7 @@ class TxtProcessor {
    * #4. Comprobar si una letra está en una palabra.
    */
   static bool isLetterInWord(String letter, String word) {
-     var letra = letter.toLowerCase();
+    var letra = letter.toLowerCase();
     return word.contains(letra);
   }
 
@@ -70,7 +70,7 @@ class TxtProcessor {
     var missedLetters = "";
     // stub (está mal, incorpora todas las letras, era para ver cambios)
     for (int i = 0; i < letterTrialList.length; i++) {
-        if (isLetterInWord(letterTrialList[i], keyword) == false){
+      if (isLetterInWord(letterTrialList[i], keyword) == false) {
         missedLetters += letterTrialList[i];
         missedLetters += " ";
       }

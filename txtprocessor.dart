@@ -17,7 +17,7 @@ class TxtProcessor {
     if (letra == "*") {
       return false;
     } else {
-      return letterTrialList.contains(letra);
+      return !letterTrialList.contains(letra);
     }
   }
 
@@ -25,7 +25,8 @@ class TxtProcessor {
    * #4. Comprobar si una letra está en una palabra.
    */
   static bool isLetterInWord(String letter, String word) {
-    return false; // stub
+    var letra = letter.toLowerCase();
+    return word.contains(letra);
   }
 
   /*
@@ -37,7 +38,26 @@ class TxtProcessor {
    * devolverá "b u _ _ s e _ e"
    */
   static String guessedLetters(String keyword, List<String> letterTrialList) {
-    return "b u _ _ s e _ e"; // stub
+    String progreso = "";
+
+    for (var i = 0; i < keyword.length; i++) {
+      bool esta = false;
+      for (var j = 0; j < letterTrialList.length; j++) {
+        if (letterTrialList.elementAt(j).toLowerCase() ==
+            keyword.substring(i, i + 1)) {
+          progreso += letterTrialList.elementAt(j).toLowerCase();
+          esta = true;
+        }
+      }
+      if (!esta) {
+        progreso += "_";
+      }
+      progreso += " ";
+    }
+    progreso = progreso.substring(0, progreso.length - 1);
+
+    //return "b u _ _ s e _ e"; // stub
+    return progreso;
   }
 
   /*
@@ -50,7 +70,11 @@ class TxtProcessor {
     var missedLetters = "";
     // stub (está mal, incorpora todas las letras, era para ver cambios)
     for (int i = 0; i < letterTrialList.length; i++) {
-      missedLetters = "$missedLetters ${letterTrialList[i]}";
+      if (isLetterInWord(letterTrialList[i], keyword) == false) {
+        missedLetters += letterTrialList[i];
+        missedLetters += " ";
+      }
+      //missedLetters = "$missedLetters ${letterTrialList[i]}";
     }
     return missedLetters;
   }
